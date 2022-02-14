@@ -168,6 +168,9 @@ void printArray(int *list, int size)
 {
   int i;
   for (i = 0; i < size - 1; i++)
+  {
     printf("%d, ", list[i]);
+  }
+  // print final element
   printf("%d\n", list[i]);
 }
