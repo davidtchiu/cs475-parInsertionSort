@@ -21,8 +21,8 @@ int *sorted;
  */
 int main(int argc, char* argv[]) {
   // allocate arrays
-  unsorted = (int*) malloc(SIZE * sizeof(int));
-  sorted = (int*) malloc(SIZE * sizeof(int));
+  unsorted = malloc(SIZE * sizeof(int));
+  sorted = malloc(SIZE * sizeof(int));
 
   // allocate and fill the unsorted array
   fillArray(unsorted, SIZE);
@@ -36,10 +36,10 @@ int main(int argc, char* argv[]) {
   int end2 = SIZE - 1;
 
   // 2 sorting threads, and 1 merge thread
-  pthread_t *threads = (pthread_t*) malloc(3 * sizeof(pthread_t));
+  pthread_t *threads = malloc(3 * sizeof(pthread_t));
 
   // prepare sorting params and fire off sorting threads
-  struct insertionSortParams *sArgs = (struct insertionSortParams*) malloc(2 * sizeof(struct insertionSortParams));
+  struct insertionSortParams *sArgs = malloc(2 * sizeof(struct insertionSortParams));
   sArgs[0].start = start1;
   sArgs[0].end = end1;
   pthread_create(&threads[0], NULL, insertionSort, &sArgs[0]); // deal with first sublist
